@@ -3,6 +3,8 @@ version: '3.8'
 services:
   backend:
     build: ./backend
+    volumes:
+      - maven-repo:/root/.m2/repository  # Кэш Maven
     depends_on:
       postgres:
         condition: service_healthy
@@ -48,6 +50,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
   tester:
+    build: ./backend
     depends_on:
       - postgres
       - kafka
@@ -56,3 +59,4 @@ services:
       - ./target/allure-results:/app/target/allure-results  # Маппинг для Allure-отчётов
 volumes:
   postgres_data:  # Объявляем volume
+  maven-repo:
