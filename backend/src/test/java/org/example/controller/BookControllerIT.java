@@ -1,8 +1,10 @@
 package org.example.controller;
 
+import io.qameta.allure.Feature;
 import io.restassured.RestAssured;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -25,6 +27,8 @@ public class BookControllerIT {
     }
 
     @Test
+    @DisplayName("Проверка получения книг")
+    @Feature("Работа с книгами")
     void whenGetBooks_thenStatus200(){
         given()
                 .when()
