@@ -91,7 +91,14 @@
             <version>5.5.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <version>3.3.4</version>
+            <scope>test</scope>
 
+        </dependency>
         <!-- Allure отчеты -->
         <dependency>
             <groupId>io.qameta.allure</groupId>

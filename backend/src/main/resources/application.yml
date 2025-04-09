@@ -7,6 +7,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-
-kafka:
-  bootstrap-servers: kafka:9092
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: book-group
+      auto-offset-reset: earliest
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
