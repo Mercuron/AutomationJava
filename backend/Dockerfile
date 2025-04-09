@@ -1,6 +1,8 @@
 FROM eclipse-temurin:17-jdk-jammy AS builder
 WORKDIR /workspace
 COPY . .
+RUN chmod +x mvnw && \
+    ./mvnw dependency:go-offline -B \
 
 RUN chmod +x mvnw && \
     ./mvnw clean package -DskipTests
